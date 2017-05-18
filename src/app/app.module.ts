@@ -8,21 +8,24 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from './todos/todos.effects';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    TodosComponent
+    TodosComponent,
+    AddTodoComponent
   ],
   imports: [
     StoreModule.provideStore({todos}),
     EffectsModule.run(TodosEffects),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [TodosService],
   bootstrap: [AppComponent]
