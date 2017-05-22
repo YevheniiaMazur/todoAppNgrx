@@ -7,11 +7,7 @@ import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <todos [todos]='todos | async'></todos>
-
-    <add-todo (add)="addTodo($event)" [reset]="addTodoSuccess$ | async"></add-todo>
-  `
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   todos: Observable<any>;

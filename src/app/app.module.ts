@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
-import { todos } from './todos/todos.reducer';
+import { todos, visibilityFilter } from './todos/todos.reducer';
 import { TodosService } from './todos/todos.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,21 +11,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { FilterComponent } from './filter/filter.component';
+import { TodosPageComponent } from './todos-page/todos-page.component';
+import { RouterModule } from '@angular/router';
+
+const routes = [
+  {path: 'todos', component: TodosPageComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     TodosComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    FilterComponent,
+    TodosPageComponent
   ],
   imports: [
-    StoreModule.provideStore({todos}),
+    StoreModule.provideStore({todos, visibilityFilter}),
     EffectsModule.run(TodosEffects),
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [TodosService],
   bootstrap: [AppComponent]

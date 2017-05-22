@@ -1,0 +1,10 @@
+<filters [filters]="filters"
+         [active]="activeFilter$ | async"
+         (changeFilter)="changeFilter($event)">
+</filters>
+
+<todos [todos]="todos$ |async"
+       (toggle)="toggle($event)">
+</todos>
+
+<add-todo (add)="addTodo($event)" [reset]="addTodoSuccess$ | async"></add-todo>

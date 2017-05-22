@@ -1,3 +1,6 @@
-<p>
-  todos works!
-</p>
+<p *ngIf="todos.pending">Loading...</p>
+<todo [todo]="todo"
+      *ngFor="let todo of todos.data"
+      (toggle)="toggle.next($event)">
+</todo>
+<p *ngIf="todos.error">{{todos.error}}</p>

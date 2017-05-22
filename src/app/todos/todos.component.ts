@@ -1,18 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'todos',
-  template: `
-    <p *ngIf="todos.pending">Loading...</p>
-
-    <todo [todo]="todo"
-          *ngFor="let todo of todos.data">
-    </todo>
-
-    <p *ngIf="todos.error">{{todos.error}}</p>
-  `,
+  templateUrl: './todos.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodosComponent {
   @Input() todos;
+  @Output() toggle = new EventEmitter<any>();
 }

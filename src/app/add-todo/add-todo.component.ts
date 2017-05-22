@@ -3,9 +3,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'add-todo',
-  template: `<input type="text" placeholder="Add todo..." [formControl]="control">
-  <button (click)="add.next(control.value)">Add</button>
-  `,
+  templateUrl: './add-todo.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddTodoComponent {

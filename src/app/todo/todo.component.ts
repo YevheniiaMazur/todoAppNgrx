@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'todo',
-  template: `
-    <p>{{todo.title}}</p>
-  `,
+  templateUrl: './todo.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent {
   @Input() todo;
+  @Output() toggle = new EventEmitter<any>();
 }
