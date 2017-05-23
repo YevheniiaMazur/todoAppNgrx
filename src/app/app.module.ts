@@ -14,8 +14,10 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { FilterComponent } from './filter/filter.component';
 import { TodosPageComponent } from './todos-page/todos-page.component';
 import { RouterModule } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes = [
+  {path: '', component: HomePageComponent, pathMatch: 'full'},
   {path: 'todos', component: TodosPageComponent}
 ]
 
@@ -26,7 +28,8 @@ const routes = [
     TodosComponent,
     AddTodoComponent,
     FilterComponent,
-    TodosPageComponent
+    TodosPageComponent,
+    HomePageComponent
   ],
   imports: [
     StoreModule.provideStore({todos, visibilityFilter}),
